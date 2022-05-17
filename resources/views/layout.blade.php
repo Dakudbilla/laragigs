@@ -29,7 +29,11 @@
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4">
             <a href="/"
-                ><img class="w-24" src="{{asset('images/logo.png')}}" alt="" class="logo"
+                ><img
+                    class="w-24"
+                    src="{{ asset('images/logo.png') }}"
+                    alt=""
+                    class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
@@ -37,7 +41,7 @@
                         ><i class="fa-solid fa-user-plus"></i> Register</a
                     >
                 </li>
-                <li >
+                <li>
                     <a href="login.html" class="hover:text-laravel"
                         ><i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a
@@ -47,9 +51,6 @@
         </nav>
 
         {{--VIEW OUTPUT--}}
-        <main>
-            @yield('content')
-        </main>
+        <main>@yield('content')</main>
     </body>
-
 </html>
