@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Listing;
+use Illuminate\Contracts\Session\Session;
 
 class ListingController extends Controller
 {
@@ -49,8 +50,7 @@ class ListingController extends Controller
         ]);
 
         Listing::create($formData);
-
-        return redirect('/');
+        return redirect('/')->with('message','Listing Created Succesfuly');
     }
 
     /**
