@@ -12,7 +12,7 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         return view('listings.index', [
         'listings'=>Listing::latest()->filter(request(['tag','search']))->get()
@@ -20,13 +20,13 @@ class ListingController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new listings resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('listings.create');
     }
 
     /**
@@ -37,7 +37,20 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData= $request->validate([
+            'title'=>'required',
+            'company'=>'required|unique:listings',
+            'location'=>'required',
+            'website'=>'required',
+            'email'=>'required|email',
+            'tags'=>'required',
+            'description'=>'required'
+
+        ]);
+
+        Listing::create($formData);
+
+        return redirect('/');
     }
 
     /**
