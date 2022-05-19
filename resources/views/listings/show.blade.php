@@ -38,6 +38,5 @@
             </div>
         </x-card>
     </div>
-    <x-footer />
 
 </x-layout>

@@ -97,5 +97,4 @@
              </div>
          </form>
      </x-card>
-     <x-footer />
  </x-layout>
