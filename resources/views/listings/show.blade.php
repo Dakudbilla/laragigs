@@ -39,6 +39,13 @@
                 </div>
             </div>
         </x-card>
+        <x-card class=" text-white bg-laravel mt-4 p-2 flex justify-center items-center items-baseline">
+            <a href="/listings/{{$listing->id}}/edit">
+                Edit Gig
+                <i class="fa-solid fa-pencil"></i>
+            </a>
+
+        </x-card>
     </div>
 
 </x-layout>
