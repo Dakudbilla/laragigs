@@ -46,6 +46,7 @@
                 <i class="fa-solid fa-pencil"></i>
             </a>
         </x-card>
+
         <x-card class="block   text-red-500 mt-4 p-2 flex justify-center items-center items-baseline">
                 <form method="POST" action="/listings/{{$listing->id}}">
                     @csrf
