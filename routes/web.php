@@ -36,14 +36,14 @@ Route::put("/listings/{listing}/",[ListingController::class,'update'])->middlewa
 Route::delete("/listings/{listing}/",[ListingController::class,'destroy'])->middleware('auth');
 
 //Get Single Listing
-Route::get("/listings/{listing}/",[ListingController::class,'show'])->middleware('guest');
+Route::get("/listings/{listing}/",[ListingController::class,'show']);
 
 
 //Show register/create form
 Route::get('/register',[UserController::class,'create'])->middleware('guest');
 
 //create new users
-Route::post('/users',[UserController::class,'store'])->middleware('auth');
+Route::post('/users',[UserController::class,'store']);
 
 //create logout authenticated user
 Route::post('/logout',[UserController::class,'logout'])->middleware('auth');

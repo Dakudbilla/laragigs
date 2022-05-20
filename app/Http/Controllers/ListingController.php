@@ -49,9 +49,14 @@ class ListingController extends Controller
 
         ]);
 
+        $formData['user_id']= auth()->user()->id;
+
+
         if($request->hasFile('logo')){
             $formData['logo']=$request->file('logo')->store('logos','public');
         }
+
+
         Listing::create($formData);
         return redirect('/')->with('message','Listing Created Succesfuly');
     }
