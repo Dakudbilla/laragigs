@@ -39,13 +39,25 @@
                 </div>
             </div>
         </x-card>
-        <x-card class=" text-white bg-laravel mt-4 p-2 flex justify-center items-center items-baseline">
-            <a href="/listings/{{$listing->id}}/edit">
+    <div class="flex justify-between items-center ">
+        <x-card class="block   text-red-500 mt-4 p-2 flex justify-center items-center items-baseline">
+            <a  href="/listings/{{$listing->id}}/edit">
                 Edit Gig
                 <i class="fa-solid fa-pencil"></i>
             </a>
-
         </x-card>
+        <x-card class="block   text-red-500 mt-4 p-2 flex justify-center items-center items-baseline">
+                <form method="POST" action="/listings/{{$listing->id}}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="ml-4">
+                        Delete
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+                </form>
+            </x-card>
+        </div>
     </div>
 
 </x-layout>
