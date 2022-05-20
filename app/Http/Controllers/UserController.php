@@ -107,4 +107,26 @@ class UserController extends Controller
 
        return redirect('/')->with('message','You have succesfully logged out');
     }
+
+    //Login user
+    public function login(){
+        return view('users.login');
+    }
+
+    //Authenticate user
+    public function authenticate(Request $request){
+        //Validate user data
+        $formData= $request->validate([
+            'email'=>'required|email',
+            'password'=>'required'
+        ]);
+
+        if(auth()->attempt($formData)){
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message','Login Succesful');
+        }
+        return back()->withErrors(['email'=>'Invalid Credentials'])->onlyInput('email');
+    }
+
 }
