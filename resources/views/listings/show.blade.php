@@ -40,6 +40,7 @@
             </div>
         </x-card>
     <div class="flex justify-between items-center ">
+        @if(auth()->user()->id==$listing->id){
         <x-card class="block   text-red-500 mt-4 p-2 flex justify-center items-center items-baseline">
             <a  href="/listings/{{$listing->id}}/edit">
                 Edit Gig
@@ -58,6 +59,8 @@
                     </button>
                 </form>
             </x-card>
+        }
+        @endif
         </div>
     </div>
 

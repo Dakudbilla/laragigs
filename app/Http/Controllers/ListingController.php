@@ -96,6 +96,10 @@ class ListingController extends Controller
      */
     public function update(Request $request, Listing $listing)
     {
+        //make sure logged in user is owner of listing to be updated
+        if($listing->user_id!=auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
         $formData= $request->validate([
             'title'=>'required',
             'company'=>'required',
@@ -121,9 +125,17 @@ class ListingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Listing $listing)
-    {
+    { //make sure logged in user is owner of listing to be updated
+        if($listing->user_id!=auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
        $listing->delete();
         return redirect("/")->with('message','Listing deleted Succesfuly');
 
+    }
+
+    //Manage Listings
+    public function manage(){
+        return view('listings.manage',['listings'=>auth()->user()->listings]);
     }
 }
