@@ -9,6 +9,7 @@ class Listing extends Model
 {
     use HasFactory;
 
+    //Set data that can be filled in batch
     protected $fillable=['title','user_id','company','location','website','description','tags','email','logo'];
 
     //filter list of listings by query provided

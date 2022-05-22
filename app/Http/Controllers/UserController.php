@@ -121,11 +121,14 @@ class UserController extends Controller
             'password'=>'required'
         ]);
 
+        //attempt to login user using formdata
         if(auth()->attempt($formData)){
             $request->session()->regenerate();
 
             return redirect('/')->with('message','Login Succesful');
         }
+
+        //return user to login page if login unsuccesful
         return back()->withErrors(['email'=>'Invalid Credentials'])->onlyInput('email');
     }
 

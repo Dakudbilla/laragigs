@@ -100,6 +100,8 @@ class ListingController extends Controller
         if($listing->user_id!=auth()->id()){
             abort(403,'Unauthorized Action');
         }
+
+        //Validate data
         $formData= $request->validate([
             'title'=>'required',
             'company'=>'required',
